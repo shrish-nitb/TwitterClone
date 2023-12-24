@@ -1,13 +1,369 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Create account</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body>
-    <!-- createUser -->
-    
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        /* border: solid 0.0625rem red; */
+    }
+
+    .btn {
+        font-family: 'Raleway';
+        font-style: normal;
+        font-weight: 600;
+
+        line-height: 0.875rem;
+        border-radius: 0.25rem;
+        text-align: center;
+        letter-spacing: 0.12em;
+        border: none;
+    }
+
+    .small-gray {
+        padding: 0.625rem 0rem;
+        width: 6.6875rem;
+        background: #D8D8D8;
+        color: #5E5E5E;
+        font-size: 0.75rem;
+    }
+
+    .small-gold {
+        padding: 0.625rem 0rem;
+        width: 6.6875rem;
+        background: #1da1f2;
+        color: #FFFFFF;
+        font-size: 0.75rem;
+    }
+
+    .flat-btn {
+        background: #1da1f2;
+        border-radius: 0.25rem;
+        font-family: 'Raleway';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 0.9003rem;
+        line-height: 1.0625rem;
+        /* identical to box height */
+
+        text-align: center;
+        letter-spacing: 0.12em;
+
+        color: #FFFFFF;
+        padding: 1rem 0rem;
+        width: 100%;
+        border: none;
+    }
+
+    .header-text {
+        font-family: 'Raleway';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.25rem;
+        line-height: 1.4375rem;
+        text-align: center;
+        letter-spacing: 0.12em;
+
+        color: #000000;
+    }
+
+    #welcome {
+        font-family: 'Raleway';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1.625rem;
+        line-height: 1.9375rem;
+        /* identical to box height */
+        letter-spacing: 0.12em;
+
+        color: #1da1f2;
+    }
+
+    #sec-title {
+        font-family: 'Raleway';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.25rem;
+        line-height: 1.4375rem;
+        letter-spacing: 0.12em;
+        margin-top: 0.6875rem;
+        color: #000000;
+    }
+
+    .main-container {
+        position: relative;
+    }
+
+
+    .input-box {
+        margin-top: 1.5rem;
+    }
+
+    .input-label {
+        font-family: 'Raleway';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 0.9375rem;
+        line-height: 1.125rem;
+        /* identical to box height */
+
+        letter-spacing: 0.12em;
+
+        color: #3D3D3D;
+    }
+
+    .field-input {
+        width: 100%;
+        height: 3.0625rem;
+        margin-top: 0.9375rem;
+        border: 0.0625rem solid #ABABAB;
+        border-radius: 0.25rem;
+        font-family: 'Raleway';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 0.9375rem;
+        line-height: 1.125rem;
+        /* identical to box height */
+
+        letter-spacing: 0.12em;
+        padding: 0rem 1rem;
+        box-sizing: border-box;
+        color: #ABABAB;
+    }
+
+    .form-footer div {
+        margin: 1.875rem 0rem;
+        width: 100%;
+
+    }
+
+    .agreement-label {
+        font-family: 'Raleway';
+        font-style: normal; 
+        font-weight: 400;
+        font-size: 0.875rem;
+        line-height: 1rem;
+        letter-spacing: 0.12em;
+        margin-left: 0.8125rem;
+        cursor: pointer;
+        color: #3D3D3D;
+    }
+
+    .check-box {
+        width: 1.0625rem;
+        height: 1.0625rem;
+        border: 0.0625rem solid #ABABAB;
+        border-radius: 0.25rem;
+        cursor: pointer;
+    }
+
+    .agreement-label a {
+        color: rgba(28, 99, 251, 1);
+        text-decoration: none;
+
+    }
+
+    input:focus{
+        outline:none;
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    .wrapper {
+        padding:1.75rem 0rem;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+ul li {
+  width: 3.125rem;
+  height: 3.125rem;
+  position: relative;
+  background: #e59500;
+  margin: 0.625rem 0;
+  cursor: pointer;
+  border-radius: 0.1875rem;
+  margin-left:0.375rem;
+  box-shadow: 0 0 0.625rem rgba(0,0,0,0.3);
+}
+
+ul li .fa {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.4375rem;
+  color: #fff;
+}
+
+ul li.facebook{
+  background: #3b5998;
+}
+
+ul li.twitter{
+  background: #00aced;
+}
+
+ul li.instagram{
+  background: #cd486b;
+}
+
+ul li.google{
+  background: #dd4b39;
+}
+
+ul li.linkedin{
+  background: #2392E0;
+}
+
+
+    /* For Desktop View */
+    @media screen and (min-width: 1024px) {
+        html {
+            font-size: 16px;
+        }
+    }
+
+    /* For Tablet View */
+    @media screen and (min-device-width: 640px) and (max-device-width: 1024px) {
+        html {
+            font-size: 14px;
+        }
+        #container{
+            margin-right: auto !important;
+        }
+    }
+
+    /* For Mobile Portrait View */
+    @media screen and (max-device-width: 480px) and (orientation: portrait) {
+        html {
+            font-size: 10px;
+        }
+        #container{
+            margin-right: auto !important;
+        }
+    }
+
+
+    /* For Mobile Landscape View */
+    @media screen and (max-device-width: 640px) and (orientation: landscape) {
+        html {
+            font-size: 13px;
+        }
+        #container{
+            margin-right: auto !important;
+        }
+    }
+
+</style>
+
+<body style="background: url(https://images.unsplash.com/photo-1560359614-870d1a7ea91d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);background-size: cover;background-position: center;">
+    <div id="container" style="
+    margin-left:auto;
+    margin-right:4rem;
+    max-width:37.9375rem;
+    display: flex;
+    padding: 3em 0em;
+    box-sizing: border-box;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+">
+        <div id="cnst-header" style="
+        height: 3.375rem;
+        padding: 0rem 3.423vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    ">
+            <div class="header-text" style="flex-grow: 1;margin-top:0.3125rem;">
+                
+            </div>
+            <div class="button-pack"
+                style="flex-grow: 1;display: flex;justify-content: flex-end;flex-direction: row;flex-wrap: wrap;align-items: flex-start;">
+                <button class="btn small-gray">Login</button>
+                <button class="btn small-gold" style="margin-left:0.4375rem;">Register</button>
+            </div>
+        </div>
+        <div class="main-container" style="
+            background-color: white;
+            padding:2.9375rem 3.25rem;
+            box-sizing: border-box;
+        ">
+            <div id="welcome">
+                Welcome!
+            </div>
+            <div id="sec-title">
+                Create your account
+            </div>
+            <div class="input-box">
+                <label for="" class="input-label">Enter your firstname</label>
+                <input type="text" class="field-input" placeholder="Firstname">
+            </div>
+            <div class="input-box">
+                <label for="" class="input-label">Enter your lastname</label>
+                <input type="text" class="field-input" placeholder="Lastname">
+            </div>
+            <div class="input-box">
+                <label for="" class="input-label">Enter your Mobile Number</label>
+                <input type="text" class="field-input" placeholder="Mobile Number">
+            </div>
+            <div class="form-footer">
+                <div style="display:flex;">
+                    <input type="checkbox" class="check-box">
+                    <label class="agreement-label">I acknowledge having read the
+                        <a href="">guidelines</a>
+                    </label>
+                </div>
+                <div>
+                    <button class="flat-btn">Create account</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <ul>
+              <li class="facebook">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </li>
+              
+              <li class="twitter">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </li>
+              
+              <li class="instagram">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </li>
+              
+              <li class="google">
+                <i class="fa fa-google" aria-hidden="true"></i>
+              </li>
+              
+              <li class="linkedin">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </li>
+            </ul>
+          </div>
+          
+    </div>
+
 </body>
+
 </html>
