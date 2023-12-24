@@ -202,7 +202,7 @@
         }
 
         #panel {
-            grid-column-start: 2;
+            grid-column: 2/span 2
         }
 
         #panel>div~div {
@@ -214,10 +214,9 @@
             flex-direction: column;
             background-color: white;
             height: auto;
-            width: 100%;
+            max-width: 85%;
             border: 1px solid #e1e8ed;
             border-radius: 3px;
-            margin: auto;
             margin-bottom: 10px;
             padding: 0rem 1.5rem;
         }
@@ -255,7 +254,8 @@
             min-height: 100vh;
         }
 
-        .badge {
+        .badge,
+        .userCardBadge {
             height: inherit;
             width: 3rem;
             display: flex;
@@ -264,12 +264,16 @@
             cursor: pointer;
         }
 
-        .badge {
+        .userCardBadge {
             border-left: solid 1px #e1e8ed;
         }
 
-        .badge:last-of-type {
+        .userCardBadge:last-of-type {
             border-right: solid 1px #e1e8ed;
+        }
+
+        .userCardBadge {
+            width: 2rem;
         }
 
         .usrBadge {
@@ -449,14 +453,20 @@
         }
 
         .userCard {
+            cursor: pointer;
             background: white;
-            width: 32%;
-            height: 15rem;
+            width: 14rem;
+            height: 19rem;
             border: 1px solid #e1e8ed;
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
+            border-radius: 4px;
+        }
+
+        .userCard:hover {
+            box-shadow: 0px 0px 5px -1px rgba(140, 140, 140, 0.2);
         }
 
         .userCardCover {
@@ -472,7 +482,8 @@
         .userCardPic {
             width: 6.25rem;
             height: 6.25rem;
-            /* background: red; */
+            border: solid 0.3125rem white;
+            border-radius: 50%;
             position: relative;
             object-fit: cover;
         }
@@ -481,7 +492,6 @@
             position: absolute;
             bottom: 0;
             width: 100%;
-            height: 4.375rem;
             text-overflow: ellipsis;
             overflow: hidden;
             padding: 0.5rem 1rem;
@@ -490,6 +500,7 @@
             text-align: center;
             display: flex;
             flex-direction: column;
+            align-items: center;
         }
 
         .userCardHeading {
@@ -499,7 +510,6 @@
             font-style: normal;
             font-weight: 700;
             line-height: normal;
-            height: 2rem;
             width: 100%;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -507,16 +517,27 @@
         }
 
         .userCardHeadingRelation {
-
-            width: 100%;
-            height: 2.5rem;
-            overflow: hidden;
-            text-overflow: ellipsis;
             font-weight: normal;
-            font-size: 0.9rem;
-            color: #737373;
+            font-size: 0.8rem;
+            color: #737373cf;
             font-family: "SF Compact Display Regular";
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
         }
+
+        .userCardActions {
+            font-size: 1.1rem;
+            color: #1DA1F2;
+            display: flex;
+            width: min-content;
+            height: 2rem;
+            border-top: solid 1px #e1e8ed;
+            border-bottom: solid 1px #e1e8ed;
+            margin: 0.2rem 0rem;
+        }
+
 
         @media only screen and (max-width: 1098px) {
             #grid {
@@ -685,14 +706,16 @@
             <div id="panel">
                 <!-- discover panel -->
                 <div class="card" style="
-              margin-top: 20px;
-          ">
+                margin-top: 20px;
+                max-width: calc(4*14rem + 6*1.5rem);
+            ">
                     <span class="heading">People you may know</span>
                     <div style="
                     display: flex;
-                    margin: 1rem 0rem;
-                    gap: 0.5rem;
+                    margin: 0rem 0rem 2rem 0rem;
+                    gap: 1.5rem;
                     flex-wrap: wrap;
+                    justify-content: center;
                 ">
                         <div class="userCard">
                             <img class="userCardCover"
@@ -704,6 +727,16 @@
                                 <div class="userCardHeading">Lorem ipsum dolor sit.</div>
                                 <div class="userCardHeadingRelation">Lorem ipsum, dolor sit amet consectetur adipisicing
                                     elit. Natus, est?</div>
+                                <div class="userCardActions">
+
+                                    <div class="userCardBadge"><i class="fa-regular fa-paper-plane"
+                                            aria-hidden="true"></i>
+                                    </div>
+                                    <div class="userCardBadge"><i class="fa-solid fa-plus" aria-hidden="true"></i></div>
+                                    <div class="userCardBadge"><i class="fa-regular fa-bookmark" aria-hidden="true"></i>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                         <div class="userCard">
@@ -716,6 +749,16 @@
                                 <div class="userCardHeading">Lorem ipsum dolor sit.</div>
                                 <div class="userCardHeadingRelation">Lorem ipsum, dolor sit amet consectetur adipisicing
                                     elit. Natus, est?</div>
+                                <div class="userCardActions">
+
+                                    <div class="userCardBadge"><i class="fa-regular fa-paper-plane"
+                                            aria-hidden="true"></i>
+                                    </div>
+                                    <div class="userCardBadge"><i class="fa-solid fa-plus" aria-hidden="true"></i></div>
+                                    <div class="userCardBadge"><i class="fa-regular fa-bookmark" aria-hidden="true"></i>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                         <div class="userCard">
@@ -728,9 +771,128 @@
                                 <div class="userCardHeading">Lorem ipsum dolor sit.</div>
                                 <div class="userCardHeadingRelation">Lorem ipsum, dolor sit amet consectetur adipisicing
                                     elit. Natus, est?</div>
+                                <div class="userCardActions">
+
+                                    <div class="userCardBadge"><i class="fa-regular fa-paper-plane"
+                                            aria-hidden="true"></i>
+                                    </div>
+                                    <div class="userCardBadge"><i class="fa-solid fa-plus" aria-hidden="true"></i></div>
+                                    <div class="userCardBadge"><i class="fa-regular fa-bookmark" aria-hidden="true"></i>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
-                        
+                        <div class="userCard">
+                            <img class="userCardCover"
+                                src="https://miro.medium.com/v2/resize:fit:1400/0*oIQlFjlVVkRuXwv6" alt="">
+                            <img class="userCardPic"
+                                src="https://img.freepik.com/premium-photo/smile-happy-proud-business-woman-entrepreneur-leader-working-corporate-office-portrait-accounts-executive-hr-manager-administrator-startup-agency-with-happiness-work_590464-81360.jpg"
+                                alt="">
+                            <div class="userCardInfo">
+                                <div class="userCardHeading">Lorem ipsum dolor sit.</div>
+                                <div class="userCardHeadingRelation">Lorem ipsum, dolor sit amet consectetur adipisicing
+                                    elit. Natus, est?</div>
+                                <div class="userCardActions">
+
+                                    <div class="userCardBadge"><i class="fa-regular fa-paper-plane"
+                                            aria-hidden="true"></i>
+                                    </div>
+                                    <div class="userCardBadge"><i class="fa-solid fa-plus" aria-hidden="true"></i></div>
+                                    <div class="userCardBadge"><i class="fa-regular fa-bookmark" aria-hidden="true"></i>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="userCard">
+                            <img class="userCardCover"
+                                src="https://miro.medium.com/v2/resize:fit:1400/0*oIQlFjlVVkRuXwv6" alt="">
+                            <img class="userCardPic"
+                                src="https://img.freepik.com/premium-photo/smile-happy-proud-business-woman-entrepreneur-leader-working-corporate-office-portrait-accounts-executive-hr-manager-administrator-startup-agency-with-happiness-work_590464-81360.jpg"
+                                alt="">
+                            <div class="userCardInfo">
+                                <div class="userCardHeading">Lorem ipsum dolor sit.</div>
+                                <div class="userCardHeadingRelation">Lorem ipsum, dolor sit amet consectetur adipisicing
+                                    elit. Natus, est?</div>
+                                <div class="userCardActions">
+
+                                    <div class="userCardBadge"><i class="fa-regular fa-paper-plane"
+                                            aria-hidden="true"></i>
+                                    </div>
+                                    <div class="userCardBadge"><i class="fa-solid fa-plus" aria-hidden="true"></i></div>
+                                    <div class="userCardBadge"><i class="fa-regular fa-bookmark" aria-hidden="true"></i>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="userCard">
+                            <img class="userCardCover"
+                                src="https://miro.medium.com/v2/resize:fit:1400/0*oIQlFjlVVkRuXwv6" alt="">
+                            <img class="userCardPic"
+                                src="https://img.freepik.com/premium-photo/smile-happy-proud-business-woman-entrepreneur-leader-working-corporate-office-portrait-accounts-executive-hr-manager-administrator-startup-agency-with-happiness-work_590464-81360.jpg"
+                                alt="">
+                            <div class="userCardInfo">
+                                <div class="userCardHeading">Lorem ipsum dolor sit.</div>
+                                <div class="userCardHeadingRelation">Lorem ipsum, dolor sit amet consectetur adipisicing
+                                    elit. Natus, est?</div>
+                                <div class="userCardActions">
+
+                                    <div class="userCardBadge"><i class="fa-regular fa-paper-plane"
+                                            aria-hidden="true"></i>
+                                    </div>
+                                    <div class="userCardBadge"><i class="fa-solid fa-plus" aria-hidden="true"></i></div>
+                                    <div class="userCardBadge"><i class="fa-regular fa-bookmark" aria-hidden="true"></i>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="userCard">
+                            <img class="userCardCover"
+                                src="https://miro.medium.com/v2/resize:fit:1400/0*oIQlFjlVVkRuXwv6" alt="">
+                            <img class="userCardPic"
+                                src="https://img.freepik.com/premium-photo/smile-happy-proud-business-woman-entrepreneur-leader-working-corporate-office-portrait-accounts-executive-hr-manager-administrator-startup-agency-with-happiness-work_590464-81360.jpg"
+                                alt="">
+                            <div class="userCardInfo">
+                                <div class="userCardHeading">Lorem ipsum dolor sit.</div>
+                                <div class="userCardHeadingRelation">Lorem ipsum, dolor sit amet consectetur adipisicing
+                                    elit. Natus, est?</div>
+                                <div class="userCardActions">
+
+                                    <div class="userCardBadge"><i class="fa-regular fa-paper-plane"
+                                            aria-hidden="true"></i>
+                                    </div>
+                                    <div class="userCardBadge"><i class="fa-solid fa-plus" aria-hidden="true"></i></div>
+                                    <div class="userCardBadge"><i class="fa-regular fa-bookmark" aria-hidden="true"></i>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="userCard">
+                            <img class="userCardCover"
+                                src="https://miro.medium.com/v2/resize:fit:1400/0*oIQlFjlVVkRuXwv6" alt="">
+                            <img class="userCardPic"
+                                src="https://img.freepik.com/premium-photo/smile-happy-proud-business-woman-entrepreneur-leader-working-corporate-office-portrait-accounts-executive-hr-manager-administrator-startup-agency-with-happiness-work_590464-81360.jpg"
+                                alt="">
+                            <div class="userCardInfo">
+                                <div class="userCardHeading">Lorem ipsum dolor sit.</div>
+                                <div class="userCardHeadingRelation">Lorem ipsum, dolor sit amet consectetur adipisicing
+                                    elit. Natus, est?</div>
+                                <div class="userCardActions">
+
+                                    <div class="userCardBadge"><i class="fa-regular fa-paper-plane"
+                                            aria-hidden="true"></i>
+                                    </div>
+                                    <div class="userCardBadge"><i class="fa-solid fa-plus" aria-hidden="true"></i></div>
+                                    <div class="userCardBadge"><i class="fa-regular fa-bookmark" aria-hidden="true"></i>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -747,10 +909,9 @@
                 var grid = document.querySelector("#grid");
                 var x =
                     grid.clientWidth -
-                    document.querySelector("#panel").clientWidth -
-                    document.querySelector("#sidebar").clientWidth;
+                    document.querySelector("#panel").clientWidth;
                 //3rem is net gap
-                root.style.setProperty("--nav-width", "calc(" + x + "px - 3rem)");
+                root.style.setProperty("--nav-width", "calc(" + x + "px - 1.5rem)");
             }
             root.style.setProperty(
                 "--nav-height",
@@ -764,10 +925,9 @@
                 var grid = document.querySelector("#grid");
                 var x =
                     grid.clientWidth -
-                    document.querySelector("#panel").clientWidth -
-                    document.querySelector("#sidebar").clientWidth;
+                    document.querySelector("#panel").clientWidth;
                 //3rem is net gap
-                root.style.setProperty("--nav-width", "calc(" + x + "px - 3rem)");
+                root.style.setProperty("--nav-width", "calc(" + x + "px - 1.5rem)");
             }
             root.style.setProperty(
                 "--nav-height",
