@@ -600,7 +600,22 @@
 
         <div id="grid">
             <div id="panel">
-              
+                <br>
+
+                <form id="updationForm" action="">
+                    <input type="text" name="" id="updUserId" placeholder="Enter your userId">
+                    <br>
+                    <input type="text" name="" id="fn" placeholder="Enter new Firstname">
+                    <input type="text" name="" id="ln" placeholder="Enter new Lastname">
+                    <br>
+                    <input type="submit" value="Update Account">
+                </form>
+                <br>
+
+                <form id="deletionForm">
+                    <input type="text" name="" id="delUserId" placeholder="Enter your userID">
+                    <input type="submit" value="Delete Account">
+                </form>
             </div>
             <div id="sidebar" style="box-sizing: border-box">
                 <div class="news"></div>
@@ -677,6 +692,7 @@
             document.querySelector(".hamburger").classList.toggle("is-active");
         };
     </script>
+    <script type="module" src="./javascript/settings.js"></script>
 </body>
 
 </html>
